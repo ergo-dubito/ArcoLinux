@@ -1,1 +1,1 @@
-# ArcoLinux
+# ArcoLinux Config Files
