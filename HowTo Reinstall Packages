@@ -1,0 +1,18 @@
+Grab a list of installed packages:
+
+pacman -Qqe > pkglist.txt
+
+On the new system, install packages:
+
+sudo pacman -S - < pkglist.txt
+
+Or, to exclude AUR packages, run:
+
+sudo pacman -S $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+
+To remove all the packages on your newly installed system that are not mentioned in the backup list, run:
+
+sudo pacman -Rsu $(comm -23 <(pacman -Qq | sort) <(sort pkglist.txt))
+
+
+
